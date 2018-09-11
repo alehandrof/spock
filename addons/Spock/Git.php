@@ -33,7 +33,7 @@ class Git
         $commands = array_get($this->config, 'commands_before', []);
 
         foreach ($this->event->affectedPaths() as $path) {
-            $commands[] = "git add {$path}";
+            $commands[] = "git add \"{$path}\"";
         }
 
         $commands[] = vsprintf('git commit -m "%s%s"', [
